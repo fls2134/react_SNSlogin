@@ -1,22 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import logoKakao from './logo/kakao.svg'
+import { REST_API_KEY, REDIRECT_URI } from './KakaoSocialLogin';
 
-function App() {
+function App() {  
+  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+  const kakao = () => {
+    window.location.href = KAKAO_AUTH_URL;
+  };
+  
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className="Social-Kakao" onClick={kakao}>
+          <img src={logoKakao} alt="logo"/>
+        </div>
       </header>
     </div>
   );
